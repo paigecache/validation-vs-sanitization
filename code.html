@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Testy Test</title>
+
+  <!-- necessary JS functions -->
+  <script type = "text/javascript">  
+    function validateInput() {
+        var username = document.getElementById("uname").value
+        var password = document.getElementById("pword").value
+    }
+
+    function clearForm() {   
+        document.getElementById('uname').value='';
+        document.getElementById('pword').value='';
+    }
+    </script>  
+</head>
+
+<body>
+    var message = "";
+    
+    <!-- intro section -->
+    <p>
+        Usernames are between 8 and 16 characters, and can only contain letters and numbers. 
+        Passwords are between 12 and 20 characters, and can contain letters, numbers, and special characters.
+    </p>
+
+    <!-- form for submissions -->
+    <!-- maybe i want this, idk: target="response_iframe" -->
+    <!-- need to change showMessage from onsubmit to onload somehow -->
+    <form method="post" autocomplete="off" onsubmit="validateInput() & clearForm()" onload="showMessage(message)">
+        <!-- username and password fields -->
+        <label for="uname">Username:</label><br>
+        <input type="text" id="uname" name="username" required><br>
+        <label for="pword">Password:</label><br>
+        <input type="text" id="pword" name="password" required><br>
+        <!-- submit button -->
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- show response -->
+    <p id="response"></p>
+
+    <!-- necessary JS functions -->
+    <script>
+        function showMessage(message){
+            document.getElementById("response").innerHTML = message;
+        }
+    </script>
+
+</body>
+</html>
